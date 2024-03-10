@@ -15,8 +15,12 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
     <style>
-      .displayNone {
+      #cardForm {
+        display: none;
+      }
+      #linguagemArea {
         display: none;
       }
       .centralizado {
@@ -29,24 +33,20 @@
     </style>
   </head>
   <body class="w-100 bg-secondary centralizado">
-    <button
-      id="BtnCadastrarFuncionario"  
-      type="button"
-      class="btn btn-primary border"
-    >
+    <button id="btn" type="button" class="btn btn-primary border">
       Cadastrar funcionario
     </button>
-    <div class="card" id="cardFormulario">
+    <div class="card" id="cardForm">
       <div
         class="card-header d-flex justify-content-between align-items-center"
       >
-        <h5 class="card-title mb-0">Formulário</h5>
+        <h5 class="card-title mb-0">CADASTRO</h5>
         <button type="button" class="btn-close" aria-label="Close"></button>
       </div>
       <div class="card-body">
         <form>
           <fieldset>
-            <legend>Disabled fieldset example</legend>
+            <legend>Adicione as informações abaixo</legend>
             <div class="mb-3">
               <label for="disabledTextInput" class="form-label">Nome</label>
               <input
@@ -57,10 +57,10 @@
               />
             </div>
             <div class="mb-3">
-              <label for="disabledTextInput" class="form-label">Idade</label>
+              <label for="disabledNumberInput" class="form-label">Idade</label>
               <input
                 type="number"
-                id="disabledTextInput"
+                id="disabledNumberInput"
                 class="form-control"
                 placeholder=""
               />
@@ -72,36 +72,39 @@
                 <option>Desenvolvedor</option>
               </select>
             </div>
-            <!-- Aqui neste campo acima deve-se ter um event listener que quando for selecionado a opção Gerente será adicionado o campo 
-            departamento no formulário e quando for selecionado o campo Desenvolvedor será adicionado o campo Linguagem de programação -->
 
-            <div class="mb-3">
-              <label for="disabledTextInput" class="form-label"
+            <div class="mb-3" id="departamentoArea">
+              <label for="disabledTextInputDepartment" class="form-label"
                 >Departamento</label
               >
               <input
                 type="text"
-                id="disabledTextInput"
+                id="disabledTextInputDepartment"
                 class="form-control"
                 placeholder=""
               />
             </div>
-            <div class="mb-3">
-              <label for="disabledTextInput" class="form-label"
+            <div class="mb-3" id="linguagemArea">
+              <label
+                for="disabledTextInputProgrammingLanguage"
+                class="form-label"
                 >Linguagem de programação</label
               >
               <input
                 type="text"
-                id="disabledTextInput"
+                id="disabledTextInputProgrammingLanguage"
                 class="form-control"
                 placeholder=""
               />
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Submit
+            </button>
           </fieldset>
         </form>
       </div>
     </div>
   </body>
+  <script src="./POOentrega.js"></script>
 </html>

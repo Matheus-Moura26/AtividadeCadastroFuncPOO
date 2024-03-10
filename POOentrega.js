@@ -6,7 +6,7 @@ class Funcionario {
   }
 
   seApresentar() {
-    console.log(
+    alert(
       "Olá, eu sou o " +
         this.nome +
         " Tenho " +
@@ -16,7 +16,7 @@ class Funcionario {
     );
   }
   trabalhar() {
-    console.log(this.nome + " Está trabalhando");
+    alert(this.nome + " Está trabalhando");
   }
 }
 
@@ -26,7 +26,7 @@ class Gerente extends Funcionario {
     this.departamento = departamento;
   }
   gerenciar() {
-    console.log(this.nome + " Está gerenciando");
+    alert(this.nome + " Está gerenciando");
   }
 }
 
@@ -36,16 +36,45 @@ class Desenvolvedor extends Funcionario {
     this.linguagem = linguagem;
   }
   programar() {
-    console.log(this.nome + " Está programando");
+    alert(this.nome + " Está programando");
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("BtnCadastrarFuncionario");
-  btn.addEventListener("Click", function () {
-    console.log("Clicado");
+  //Botões
+  const btn = document.getElementById("btn");
+  const btnClose = document.getElementsByClassName("btn-close")[0];
+  const submitBtn = document.getElementById("submitBtn");
+  const card = document.getElementById("cardForm");
+  var cardSetter = 0;
+  btn.addEventListener("click", function () {
+    card.style.display = "flex";
+    btn.style.display = "none";
+  });
+  btnClose.addEventListener("click", function () {
+    card.style.display = "none";
+    btn.style.display = "flex";
+  });
+  submitBtn.addEventListener("click", function () {
+    card.style.display = "none";
+    btn.style.display = "flex";
   });
 
+  //ALTERNAR ENTRE CAMPOS
+  const disabledSelect = document.getElementById("disabledSelect");
+  disabledSelect.addEventListener("change", function () {
+    const departamento = document.getElementById("departamentoArea");
+    const programacao = document.getElementById("linguagemArea");
+    if (disabledSelect.value === "Gerente") {
+      departamento.style.display = "flex";
+      programacao.style.display = "none";
+    } else if (disabledSelect.value === "Desenvolvedor") {
+      departamento.style.display = "none";
+      programacao.style.display = "flex";
+    }
+  });
+
+  //FORMULARIO
   const form = document.querySelector("form");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
